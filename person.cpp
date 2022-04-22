@@ -15,11 +15,11 @@ Person::Person(QString last_name, QString first_name, QString patronymic)
 
 Person::Person(QString full_name)
 {
-	QStringList words = full_name.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts); // разбиваем полученную строку на не пустые слова
+	QStringList words = full_name.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts); //полученная стока разбивается на не пустые слова
 
-	if (words.size() != 2 && words.size() != 3) // если в строке недостаточно, или слишком много слов, то это значит что входные данные в неверном формате
+	if (words.size() != 3 && words.size() != 2) // проверяем количество слов если перебор или недобор, то это значит что входные данные в неверном формате
 	{
-		throw "Error: Person(): A string has incorrect format and could not be completely parsed."; // сответствтвенно об этом нужно предупредить пользователя
+		throw "Error: Person(): A string has incorrect format and could not be completely parsed."; // предупреждение пользователя об этом
 	}
 
 	last_name_ = words[0]; // используем первое слово в строке в качестве фамилии
